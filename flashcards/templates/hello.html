@@ -1,0 +1,9 @@
+
+{% block content %}
+  <h1>Welcome to 5_box_quiz!</h1>
+  {% for adjective in adjectives %}
+    {% if adjective != 'cruel' %}
+      <p>This is a beautiful world...</p>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
