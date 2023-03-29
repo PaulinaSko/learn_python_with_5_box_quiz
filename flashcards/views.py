@@ -5,10 +5,6 @@ from .models import Flashcards
 import random
 
 
-def hello(request):
-    return render(request, 'hello.html')
-
-
 class Question(generic.DetailView):
     model = Flashcards
     template_name = 'flashcards/flashcard.html'
