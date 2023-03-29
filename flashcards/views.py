@@ -24,4 +24,3 @@ def random_flashcard(request):
             return render(request, 'flashcards/flashcard.html', {'random_flashcard': random_flashcard})
 
 
-
