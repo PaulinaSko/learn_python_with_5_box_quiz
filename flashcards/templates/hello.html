@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block content %}
+  <h1>HELLO</h1>
+  {% for adjective in adjectives %}
+    {% if adjective != 'cruel' %}
+      <p>This is a beautiful world...</p>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
 
-</body>
-</html>

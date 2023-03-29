@@ -1,47 +1,30 @@
-import sqlite3
-from logging import getLogger
-from random import randint
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
+from .models import Flashcards
+import random
 
-
-LOGGER = getLogger()
-DB_NAME = "flashcards.db"
-
-def get_database_connection():
-con = sqlite3.connect(DB_NAME)
-
-def read_data_from_db():
-    sql_query = ''' SELECT id, question, box_nr, answer FROM flashcards; '''
-
-    con = get_database_connection()
-    cur = con.cursor()
-
-    cur.execute(sql_query)
-    results = cur.fetchall()
-
-    cur.close()
-    con.close()
-
-    return results
 
 def hello(request):
-    return HttpResponse('Hello, world!')
+    return render(request, 'hello.html')
 
 
-class StaffRequiredMixin(UserPassesTestMixin):
-    def test_func(self):
-        return self.request.user.is_staff
+class Question(generic.DetailView):
+    model = Flashcards
+    template_name = 'flashcards/flashcard.html'
 
 
-def error_404(request, exception):
-    return render(request, 'notfound.html')
+# Create your views here.
+
+def random_flashcard(request):
+    selected_answer = []
+    number_of_flashcards = Flashcards.objects.count()
+
+    while len(selected_answer) < number_of_flashcards:
+        random_id = random.randint(1, number_of_flashcards)
+        random_flashcard = Flashcards.objects.get(id=random_id)
+        if random_flashcard not in selected_answer:
+            selected_answer.append(random_flashcard)
+            return render(request, 'flashcards/flashcard.html', {'random_flashcard': random_flashcard})
 
 
-def error_500(request):
-    return render(request, 'notfound.html')
-
-
-def test_func(self):
-    return super().test_func() and self.request.user.is_superuser
