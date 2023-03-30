@@ -1,0 +1,138 @@
+[
+  {
+    "model": "flashcards.flashcards",
+    "pk": 1,
+    "fields": {
+      "ID": 1,
+      "box_ID": 1,
+      "question": "Python function always returns a value T/F",
+      "answers": "True"
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 2,
+    "fields": {
+      "box_ID": 1,
+      "question": "What is a correct syntax to output \"Hello World\" in Python?",
+      "answers": "print(\"Hello World\")"
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 3,
+    "fields": { 
+      "box_ID": 1,
+      "question": "How do you insert comments in Python code?",
+      "answers": "#This is comment"
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 4,
+    "fields": {
+      "box_ID": 1,
+      "question": "What is the correct file extension for Python files?",
+      "answers": ".py"
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 5,
+    "fields": {
+      "box_ID": 1,
+      "question": "Which type of Programming does Python support?",
+      "answers": "Python is an interpreted programming language, which supports object-oriented, structured, and functional programming."
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 6,
+    "fields": {
+      "box_ID": 1,
+      "question": "Is Python code compiled or interpreted?",
+      "answers": "Python code is both compiled and interpreted"
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 7,
+    "fields": {
+      "box_ID": 1,
+      "question": "In Python3, Whatever you enter as input, the input() function converts it into a string T/F",
+      "answers": "True"
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 8,
+    "fields": {
+      "box_ID": 1,
+      "question": "When does a new block begin in Python?",
+      "answers": "A block begins when the line is intended by 4 spaces"
+    }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 9,
+    "fields": {
+      "box_ID": 1,
+      "question": "Is String in Python are immutable?(Yes/No)",
+      "answers": "Yes"
+      }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 10,
+    "fields": {
+      "box_ID": 1,
+      "question": "Which keyword is used for function in Python language?",
+      "answers": "The def keyword is used to create, (or define) a function in python"
+      }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 11,
+    "fields": {
+      "box_ID": 1,
+      "question": "Which of the following functions can help us to find the version of python that we are currently working on?",
+      "answers": "The function sys.version can help us to find the version of python that we are currently working on"
+      }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 12,
+    "fields": {
+      "box_ID": 1,
+      "question": "What does pip stand for Python?",
+      "answers": "Preferred Installer Program"
+      }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 13,
+    "fields": {
+      "box_ID": 1,
+      "question": "Which of the following is not a core data type in Python programming? Tuples/Lists/Class/Dictionary",
+      "answers": "Class"
+      }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 14,
+    "fields": {
+      "box_ID": 1,
+      "question": "Which of the following statements is used to create an empty set in Python?",
+      "answers": "Only set() creates an empty set"
+      }
+  },
+  {
+    "model": "flashcards.flashcards",
+    "pk": 15,
+    "fields": {
+      "box_ID": 1,
+      "question": "String literals� A string literal is created by assigning some text enclosed in single or double quotes to a variable.",
+      "answers": "Eg.name=�Tanya�"
+    }
+  }
+]
