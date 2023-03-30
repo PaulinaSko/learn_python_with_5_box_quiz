@@ -1,5 +1,5 @@
-"""learn_python_with_5_box_quiz URL Configuration
 
+"""learn_python_with_5_box_quiz URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -20,8 +20,7 @@ from flashcards.views import random_flashcard
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', random_flashcard, name='random_falashcard'),
-    path('flashcards/', include('flashcards.urls')),
+    path('', include('flashcards.urls')),
     path('accounts/', include('accounts.urls'))
 
 ]
