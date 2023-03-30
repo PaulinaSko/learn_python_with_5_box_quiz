@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Flashcards
 
 import random
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 class Question(generic.DetailView):
@@ -13,7 +13,7 @@ class Question(generic.DetailView):
 
 
 # Create your views here.
-@login_required
+
 def random_flashcard(request):
     selected_answer = []
     number_of_flashcards = Flashcards.objects.count()
@@ -28,4 +28,9 @@ def random_flashcard(request):
 
 class FlashcardsView(ListView):
     template_name = 'main_page.html'
+    model = Flashcards
+
+
+class BlogPageView(ListView):
+    template_name = 'Leitner_system.html'
     model = Flashcards
