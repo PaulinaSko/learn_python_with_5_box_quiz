@@ -1,10 +1,8 @@
 from django.urls import path
-
-from . import views
-from .views import random_flashcard
+from .views import random_flashcard, FlashcardsView
 
 app_name = 'flashcards'
 urlpatterns = [
-
-    path('', random_flashcard),
+    path('', FlashcardsView.as_view(), name='index'),
+    path('flashcards/', random_flashcard, name='flashcard'),
 ]

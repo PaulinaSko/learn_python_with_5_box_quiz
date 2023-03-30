@@ -1,6 +1,4 @@
 import datetime
-from random import randint
-import sqlite3
 from django.db import models
 
 
