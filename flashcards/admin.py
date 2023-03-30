@@ -13,7 +13,3 @@ class Flashcards(admin.ModelAdmin):
     list_filter = ["box_ID"]
     search_fields = ["question"]
 
-    # fieldsets = [
-    #     (None,               {'fields': ['question']}),
-    #     ('Date information', {'fields': ['answer']})
-    # ]
