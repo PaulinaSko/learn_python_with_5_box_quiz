@@ -15,12 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from flashcards.views import random_flashcard
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('flashcards.urls')),
+    path("", include('flashcards.urls')),
     path('accounts/', include('accounts.urls'))
 
 ]
