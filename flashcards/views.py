@@ -20,10 +20,10 @@ def random_flashcard(request):
 
     while len(selected_answer) < number_of_flashcards:
         random_id = random.randint(1, number_of_flashcards)
-        random_flashcard_item = Flashcards.objects.get(id=random_id)
+        random_flashcard_item = Flashcards.objects.get(ID=random_id)
         if random_flashcard_item not in selected_answer:
             selected_answer.append(random_flashcard_item)
-            return render(request, 'flashcards/flashcard.html', {'random_flashcard': random_flashcard_item})
+            return render(request, 'flashcard.html', {'random_flashcard': random_flashcard_item})
 
 
 class FlashcardsView(ListView):
