@@ -31,3 +31,4 @@ class RegisterView(FormView):
         if self.request.user.is_authenticated:
             return redirect("flashcards:flashcards")
         return super(RegisterView, self).get(*arg, **kwargs)
+    
