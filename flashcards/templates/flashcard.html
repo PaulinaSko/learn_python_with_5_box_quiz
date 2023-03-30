@@ -1,11 +1,8 @@
 {% block content %}
   <h1>Welcome to 5_box_quiz!</h1>
 {% endblock %}
+
 <body>
-{#            {% for fiszka in losowa_fiszka %}#}
-
-            <p>{{ losowa_fiszka.question }}<p>
-
-{#            {% endfor %}#}
+            <h2>{{ random_flashcard.question }}<h2>
+            <h5>Odpowiedz: {{ random_flashcard.answers }}</h5>
 </body>
-</html>

@@ -1,4 +1,6 @@
 import datetime
+from random import randint
+import sqlite3
 from django.db import models
 
 
@@ -6,10 +8,10 @@ from django.db import models
 
 
 class Flashcards(models.Model):
-    id = models.IntegerField(primary_key=True)
-    question = models.CharField(max_length=100)
-    answer = models.CharField(max_length=100)
-    box_number = models.IntegerField(default=1)
+    ID = models.IntegerField(primary_key=True)
+    box_ID = models.IntegerField(default=1)
+    question = models.CharField(max_length=256)
+    answers = models.CharField(max_length=256, default="Brak odpowiedzi")
 
     def __str__(self):
-        return f"Question: {self.question} Answer: {self.answer}"
+        return f"Question: {self.question} Answer: {self.answers}"
