@@ -41,29 +41,14 @@
                 </a>
             </div>
         </div>
-        <div class="navbar-nav">
-            <a class="nav-link" href="{% url 'admin:index' %}">
-                Admin
-            </a>
-        </div>
     </div>
 </nav>
  <section class="header">
         <div class="nav-bar">
             <div class="logo">
-                <a href="{%url 'index' %}">
-                    <img src="{% static 'flashcards/images/logo_125x50.png' %}" alt="the Movies logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'flashcards/images/logo_125x50.png' %}" alt="logo">
                 </a>
-            </div>
-            <div class="nav-bar-l">
-                <ul>
-                    {% if request.path != '/' %}
-                    <li><a href="javascript:" onclick="history.go(-1);">&#8592; Back</a></li>
-                    {% endif %}
-                    {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'movie_create' %}">+ Add Movie</a></li>
-                    {% endif %}
-                </ul>
             </div>
 
             <div class="nav-bar-r">
