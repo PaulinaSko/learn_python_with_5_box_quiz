@@ -2,7 +2,9 @@
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 from .models import Flashcards
+
 import random
 
 
@@ -12,7 +14,7 @@ class Question(generic.DetailView):
 
 
 # Create your views here.
-
+@login_required
 def random_flashcard(request):
     selected_answer = []
     number_of_flashcards = Flashcards.objects.count()
