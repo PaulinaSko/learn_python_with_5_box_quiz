@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
@@ -18,9 +19,9 @@ def random_flashcard(request):
 
     while len(selected_answer) < number_of_flashcards:
         random_id = random.randint(1, number_of_flashcards)
-        random_flashcard = Flashcards.objects.get(id=random_id)
+        random_flashcard = Flashcards.objects.get(ID=random_id)
         if random_flashcard not in selected_answer:
             selected_answer.append(random_flashcard)
-            return render(request, 'flashcards/flashcard.html', {'random_flashcard': random_flashcard})
+            return render(request, 'flashcard.html', {'random_flashcard': random_flashcard})
 
 
