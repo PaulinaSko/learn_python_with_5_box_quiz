@@ -34,3 +34,8 @@ class FlashcardsView(ListView):
 class BlogPageView(ListView):
     template_name = 'Leitner_system.html'
     model = Flashcards
+
+
+class AboutQuiz(ListView):
+    template_name = 'about_quiz.html'
+    model = Flashcards
