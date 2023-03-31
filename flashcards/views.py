@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from .models import Flashcards
-
 import random
 from django.views.generic import ListView, DetailView
 
@@ -38,4 +37,9 @@ class BlogPageView(ListView):
 
 class AboutQuiz(ListView):
     template_name = 'about_quiz.html'
+    model = Flashcards
+
+
+class Ranking(ListView):
+    template_name = 'ranking.html'
     model = Flashcards

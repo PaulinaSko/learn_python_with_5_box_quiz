@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Ranking - here You can check Your rank compared to other Members.</h1>
+    <section>
+    <div class="not-found">
+    <p>tu musi być funkcja wczytujaca najlepszych</p>
+    </div>
+    <div>
+    <a href="{% url 'index' %}"><button class="button">Still not the best? Try again!</button></a>
+    </div>
+    </section>
+{% endblock %}
