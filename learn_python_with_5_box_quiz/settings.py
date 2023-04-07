@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'django.contrib.sessions',
     'flashcards',
-    'accounts',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -125,6 +125,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
+LOGIN_URL = 'accounts:login'
+LOGIN_REDIRECT_URL = 'flashcards:index'
+LOGOUT_REDIRECT_URL = 'flashcards:index'
