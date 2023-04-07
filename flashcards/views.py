@@ -1,28 +1,42 @@
 from django.shortcuts import render, get_object_or_404
-from django.views import generic
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.template import Template, Context
 from .models import Flashcards
 import random
 from django.views.generic import ListView, DetailView
 
 
-class Question(generic.DetailView):
-    model = Flashcards
-    template_name = 'flashcards/flashcard.html'
-
-
 # Create your views here.
 
 def random_flashcard(request):
-    selected_answer = []
+    global flashcard
     number_of_flashcards = Flashcards.objects.count()
+    random_id = random.randint(1, number_of_flashcards)
+    if 'flashcard_displayed' in request.session:
+        if len(request.session['flashcard_displayed']) >= number_of_flashcards:
+            return HttpResponse('100 FISZEK PRZEROBINYCH na dzisaj koniec')
 
-    while len(selected_answer) < number_of_flashcards:
+        if random_id not in request.session['flashcard_displayed']:
+            request.session['flashcard_displayed'].insert(0, random_id)
+            flashcard = Flashcards.objects.get(ID=random_id)
+
+        else:
+            while random_id in request.session['flashcard_displayed']:
+                random_id = random.randint(1, number_of_flashcards)
+
+            request.session['flashcard_displayed'].insert(0, random_id)
+            flashcard = Flashcards.objects.get(ID=random_id)
+
+    else:
         random_id = random.randint(1, number_of_flashcards)
-        random_flashcard_item = Flashcards.objects.get(ID=random_id)
-        if random_flashcard_item not in selected_answer:
-            selected_answer.append(random_flashcard_item)
-            return render(request, 'flashcard.html', {'random_flashcard': random_flashcard_item})
+        flashcard = Flashcards.objects.get(ID=random_id)
+        request.session['flashcard_displayed'] = [random_id]
+
+    request.session.modified = True
+
+    context = {'random_flashcard': flashcard}
+
+    return render(request, 'flashcard.html', context)
 
 
 class FlashcardsView(ListView):

@@ -13,5 +13,9 @@ class Flashcards(models.Model):
     question = models.CharField(max_length=256)
     answers = models.CharField(max_length=256, default="Brak odpowiedzi")
 
+    class Meta:
+        db_table = 'flashcards_flashcards'
+        ordering = ['ID']
+
     def __str__(self):
         return f"Question: {self.question} Answer: {self.answers}"
