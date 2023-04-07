@@ -13,5 +13,5 @@ class Flashcards(models.Model):
     question = models.CharField(max_length=256)
     answers = models.CharField(max_length=256, default="No answer")
 
-    def __str__(self):  
+    def __str__(self):
         return f"Question: {self.question} Answer: {self.answers}"
