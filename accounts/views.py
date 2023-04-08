@@ -2,8 +2,10 @@ from django.shortcuts import redirect
 from django.contrib.auth import login, get_user_model
 from django.contrib.auth.views import LoginView, FormView
 from django.urls import reverse_lazy
-
 from .forms import CustomUserCreationForm
+from django.http import HttpResponse
+
+
 # Create your views here
 
 User = get_user_model()
@@ -19,7 +21,7 @@ class RegisterView(FormView):
     template_name = "accounts/register.html"
     form_class = CustomUserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('flashcards:flashcards')
+    success_url = reverse_lazy('flashcards:flashcard')
 
     def form_valid(self, form):
         user = form.save()
@@ -29,6 +31,5 @@ class RegisterView(FormView):
 
     def get(self, *arg, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect("flashcards:flashcards")
+            return redirect("flashcards:flashcard")
         return super(RegisterView, self).get(*arg, **kwargs)
-    
