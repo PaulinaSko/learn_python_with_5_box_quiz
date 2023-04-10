@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Congratulations, You`ve done it !</h1>
+    <section>
+    <div>
+    <p>You`re the best</p>
+    </div>
+    <div>
+    <a href="{% url 'certificate' %}"><button class="button">Generate certificate</button></a>
+    </div>
+    </section>
+
+{% endblock %}
