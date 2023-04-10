@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 from .models import CustomUser
 
@@ -70,3 +70,12 @@ class CustomUserCreationForm(UserCreationForm):
         #     if bad_word in username or first_name or last_name or email:
         #         raise forms.ValidationError("Please, try again and this time use a PROPER language")
         # return username or first_name or last_name or email
+
+class LoginForm(AuthenticationForm):
+    fields = ('username', 'password1', 'password2')
+    remember_me = forms.BooleanField(required=False)
+
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'password1', 'password2', 'remember_me']
+

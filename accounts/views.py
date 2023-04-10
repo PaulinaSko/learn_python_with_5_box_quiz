@@ -1,27 +1,23 @@
-from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, get_object_or_404, render
 from django.contrib.auth import login, get_user_model
 from django.contrib.auth.views import LoginView, FormView
 from django.urls import reverse_lazy
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, LoginForm
 from django.http import HttpResponse
 
+from .models import CustomUser
 
 # Create your views here
 
 User = get_user_model()
 
 
-class CustomLoginView(LoginView):
-    template_name = "accounts/login.html"
-    fields = "__all__"
-    redirect_authenticated_user = True
-
-
 class RegisterView(FormView):
     template_name = "accounts/register.html"
     form_class = CustomUserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('flashcards:flashcard')
+    success_url = reverse_lazy('flashcard')
 
     def form_valid(self, form):
         user = form.save()
@@ -31,5 +27,25 @@ class RegisterView(FormView):
 
     def get(self, *arg, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect("flashcards:flashcard")
+            return redirect("flashcard")
         return super(RegisterView, self).get(*arg, **kwargs)
+
+
+class CustomLoginView(LoginView):
+    form_class = LoginForm
+
+    def form_valid(self, form):
+        remember_me = form.cleaned_data.get('remember_me')
+
+        if not remember_me:
+            self.request.session.set_expiry(0)
+
+            self.request.session.modified = True
+
+        return super(CustomLoginView, self).form_valid(form)
+
+
+@login_required
+def profile(request):
+    user = CustomUserCreationForm(instance=request.user)
+    return render(request, 'accounts/profile.html', {"user": user})
