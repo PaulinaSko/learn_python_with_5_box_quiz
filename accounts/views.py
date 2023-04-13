@@ -1,12 +1,12 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, get_object_or_404, render
+from django.shortcuts import redirect, render
 from django.contrib.auth import login, get_user_model
 from django.contrib.auth.views import LoginView, FormView
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, LoginForm
 from django.http import HttpResponse
 from django.views.generic import View
-from .process import html_to_pdf
+# from learn_python_with_5_box_quiz.flashcards.process import html_to_pdf
 
 # Create your views here
 
@@ -51,8 +51,8 @@ def profile(request):
     return render(request, 'accounts/profile.html', {"user": user})
 
 
-class GeneratePdf(View):
-    def get(self, request, *args, **kwargs):
-        pdf = html_to_pdf('accounts/result.html')
-
-        return HttpResponse(pdf, content_type='application/pdf')
+# class GeneratePdf(View):
+#     def show_certificate(self, request, *args, **kwargs):
+#         pdf = html_to_pdf('accounts/result.html')
+#
+#         return HttpResponse(pdf, content_type='application/pdf')
