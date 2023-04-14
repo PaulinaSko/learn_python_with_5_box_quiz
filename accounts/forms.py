@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
-from .models import CustomUser
+from .models import CustomUser, Profile
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -79,3 +79,22 @@ class LoginForm(AuthenticationForm):
         model = CustomUser
         fields = ['username', 'password1', 'password2', 'remember_me']
 
+
+class UpdateUserForm(forms.ModelForm):
+    username = forms.CharField(max_length=16)
+    first_name = forms.CharField(max_length=64)
+    last_name = forms.CharField(max_length=64)
+    email = forms.EmailField()
+
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'first_name', 'last_name', 'email']
+
+
+class UpdateProfileForm(forms.ModelForm):
+
+    bio = forms.CharField()
+
+    class Meta:
+        model = Profile
+        fields = ['bio']
