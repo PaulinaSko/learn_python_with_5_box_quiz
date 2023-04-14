@@ -11,7 +11,7 @@ class Flashcards(models.Model):
     ID = models.IntegerField(primary_key=True)
     box_ID = models.IntegerField(default=1)
     question = models.CharField(max_length=256)
-    answers = models.CharField(max_length=256, default="Brak odpowiedzi")
+    answers = models.CharField(max_length=256, default="No answer")
 
     class Meta:
         db_table = 'flashcards_flashcards'

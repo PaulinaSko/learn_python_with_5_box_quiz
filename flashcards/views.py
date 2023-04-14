@@ -1,9 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import Template, Context
 from .models import Flashcards
 import random
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
 
 
 # Create your views here.
@@ -57,3 +56,11 @@ class AboutQuiz(ListView):
 class Ranking(ListView):
     template_name = 'ranking.html'
     model = Flashcards
+
+
+def error_404(request):
+    return render(request, 'notfound.html')
+
+
+def error_500(request):
+    return render(request, 'notfound.html')
