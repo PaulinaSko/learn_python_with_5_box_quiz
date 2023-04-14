@@ -3,17 +3,24 @@ from django.http import HttpResponse
 from .models import Flashcards
 import random
 from django.views.generic import ListView
+from .process import html_to_pdf
 
 
 # Create your views here.
 
-def random_flashcard(request):
+def show_certificate(self, request, *args, **kwargs):
+    pdf = html_to_pdf('accounts/result.html')
+
+    return HttpResponse(pdf, content_type='application/pdf')
+
+
+def random_flashcard(request, kwargs=None):
     global flashcard
     number_of_flashcards = Flashcards.objects.count()
     random_id = random.randint(1, number_of_flashcards)
     if 'flashcard_displayed' in request.session:
-        if len(request.session['flashcard_displayed']) >= number_of_flashcards:
-            return HttpResponse('100 FISZEK PRZEROBINYCH na dzisaj koniec')
+        if len(request.session['flashcard_displayed']) >= 2:
+            return show_certificate(request, kwargs)
 
         if random_id not in request.session['flashcard_displayed']:
             request.session['flashcard_displayed'].insert(0, random_id)
