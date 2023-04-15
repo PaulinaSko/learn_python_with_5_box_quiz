@@ -10,3 +10,12 @@ class CustomUser(AbstractUser):
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     email = models.EmailField(unique=True)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+
+    bio = models.TextField()
+
+    def __str__(self):
+        return self.user.username

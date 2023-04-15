@@ -1,9 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, get_user_model
+from django.contrib import messages
 from django.contrib.auth.views import LoginView, FormView
 from django.urls import reverse_lazy
-from .forms import CustomUserCreationForm, LoginForm
+from .forms import CustomUserCreationForm, LoginForm, UpdateUserForm, UpdateProfileForm
 from django.http import HttpResponse
 from django.views.generic import View
 # from learn_python_with_5_box_quiz.flashcards.process import html_to_pdf
@@ -47,8 +48,20 @@ class CustomLoginView(LoginView):
 
 @login_required
 def profile(request):
-    user = CustomUserCreationForm(instance=request.user)
-    return render(request, 'accounts/profile.html', {"user": user})
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile is updated successfully')
+            return redirect(to='profile')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
 # class GeneratePdf(View):
