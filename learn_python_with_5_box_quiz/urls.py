@@ -20,3 +20,6 @@ urlpatterns = [
     path("", include('flashcards.urls')),
     path("", include('accounts.urls'))
 ]
+
+handler404 = 'flashcards.views.error_404'
+handler500 = 'flashcards.views.error_500'
