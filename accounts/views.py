@@ -5,9 +5,6 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView, FormView
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, LoginForm, UpdateUserForm, UpdateProfileForm
-from django.http import HttpResponse
-from django.views.generic import View
-# from learn_python_with_5_box_quiz.flashcards.process import html_to_pdf
 
 # Create your views here
 
@@ -62,10 +59,3 @@ def profile(request):
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
     return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form})
-
-
-# class GeneratePdf(View):
-#     def show_certificate(self, request, *args, **kwargs):
-#         pdf = html_to_pdf('accounts/result.html')
-#
-#         return HttpResponse(pdf, content_type='application/pdf')
