@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="container__section">
+        <h2>Hello user,<br />
+        </h2>
+        <p>The basic rules of the quiz:</p>
+        <br />
+        <p>1. Read the question on the flash card</p>
+        <p>2. If You know the answer click YES to confirm - the answer will appear</p>
+        <p>3. If You do not know the answer click NEXT</p>
+    </section>
+    <section class="container__section">
+        <div class="buttons">
+            <a
+                href="{% url 'flashcard' %}"
+                class="btn"
+            >
+                <span>Start now</span>
+                <svg
+                    width="13px"
+                    height="10px"
+                    viewBox="0 0 13 10"
+                >
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="chart">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </section>
+{% endblock %}
