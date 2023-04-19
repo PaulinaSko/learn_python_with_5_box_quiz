@@ -53,7 +53,6 @@ class CustomUserCreationForm(UserCreationForm):
                 raise forms.ValidationError("Please, change - Email - and this time use a PROPER language")
         return email
 
-
     # def clean_username(self):
     #     username = self.cleaned_data.get('username')
     #
@@ -65,11 +64,12 @@ class CustomUserCreationForm(UserCreationForm):
     #             raise forms.ValidationError("Please, use a proper language")
     #     return username
 
-        #
-        # for bad_word in blacklist:
-        #     if bad_word in username or first_name or last_name or email:
-        #         raise forms.ValidationError("Please, try again and this time use a PROPER language")
-        # return username or first_name or last_name or email
+    #
+    # for bad_word in blacklist:
+    #     if bad_word in username or first_name or last_name or email:
+    #         raise forms.ValidationError("Please, try again and this time use a PROPER language")
+    # return username or first_name or last_name or email
+
 
 class LoginForm(AuthenticationForm):
     fields = ('username', 'password1', 'password2')
@@ -81,10 +81,20 @@ class LoginForm(AuthenticationForm):
 
 
 class UpdateUserForm(forms.ModelForm):
-    username = forms.CharField(max_length=16)
-    first_name = forms.CharField(max_length=64)
-    last_name = forms.CharField(max_length=64)
-    email = forms.EmailField()
+    username = forms.CharField(max_length=100,
+                               required=True,
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    first_name = forms.CharField(max_length=100,
+                                 required=True,
+                                 widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    last_name = forms.CharField(max_length=100,
+                                required=True,
+                                widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    email = forms.EmailField(required=True,
+                             widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = CustomUser
@@ -92,8 +102,7 @@ class UpdateUserForm(forms.ModelForm):
 
 
 class UpdateProfileForm(forms.ModelForm):
-
-    bio = forms.CharField()
+    bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
 
     class Meta:
         model = Profile

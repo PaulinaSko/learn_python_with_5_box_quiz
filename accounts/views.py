@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, render
 from django.contrib.auth import login, get_user_model
 from django.contrib import messages
-from django.contrib.auth.views import LoginView, FormView
+from django.contrib.auth.views import LoginView, FormView, PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, LoginForm, UpdateUserForm, UpdateProfileForm
 from django.http import HttpResponse
@@ -62,6 +63,12 @@ def profile(request):
         profile_form = UpdateProfileForm(instance=request.user.profile)
 
     return render(request, 'accounts/profile.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'accounts/change_password.html'
+    success_message = "Successfully Changed Your Password"
+    success_url = reverse_lazy('index')
 
 
 # class GeneratePdf(View):
