@@ -1,16 +1,33 @@
 {% extends "base.html" %}
 
+{% load static %}
+    <img src="{% static 'flashcards/images/users.png' %}" alt="Our image">
+
 {% block content %}
-  <h1>CONGRATULATIONS ! </h1>
-    <section>
-    <div>
-    <p>You have overcome the challenge. Your current rank is ... </p>
-    </div>
-    <div>
-        <p> Click <a href="{% url 'certificate' %}"><button class="button">HERE</button></a> to obtain a certificate. </p>
-    </div>
-        <p>You have overcome the challenge. </p>
-    <div> Hope seeing You again in the future. Yours, GreenTeam </div>
+    <section class="container__section container__section--thank-you">
+        <p>Congratulations user</p>
+        <p>You have overcome the challenge!</p>
+        </p>
+        <div class="buttons">
+            <a
+                href="{% url 'certificate' %}"
+                class="btn"
+            >
+                <span>Click HERE to obtain a certificate.</span>
+                <svg
+                    width="13px"
+                    height="10px"
+                    viewBox="0 0 13 10"
+                >
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </a>
+        </div>
+        <p>Hope seeing You again in the future,<br />Yours, GreenTeam</p>
+    </section>
+
+    <section class="container__section container__section--users">
+        <img src="{% static 'images/users.png' %}" >
     </section>
 {% endblock %}
-

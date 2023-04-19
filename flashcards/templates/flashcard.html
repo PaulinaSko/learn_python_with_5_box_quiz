@@ -1,13 +1,175 @@
 {% extends "base.html" %}
+
 {% block content %}
-  <h1>Welcome to 5_box_quiz!</h1>
+    <section class="container__section">
+        <h2>1 out of 20</h2>
+    </section>
 
+    <section class="flashcard active">
+        <div class="container__section--card flashcard-front">
+            <p>task contents</p>
+            <div class="buttons">
+                <a
+                    href="#"
+                    class="btn next"
+                >
+                    <span>Next</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+                <a
+                    href="start.html"
+                    class="btn i-know"
+                >
+                    <span>I know</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
 
-<body>
-            <h2>{{ random_flashcard.question }}</h2>
-            <h5>Answer: {{ random_flashcard.answers }}</h5>
-                <button onclick="window.location.href = ''">Next Question</button>
-                <button name="button_know" onclick="window.location.href = ''">I Know</button>
+        <div class="container__section--card flashcard-back">
+            <p>answer</p>
+            <div class="buttons">
+                <a
+                    href="#"
+                    class="btn next"
+                >
+                    <span>Next</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
-</body>
+    <section class="flashcard">
+        <div class="container__section--card flashcard-front">
+            <p>task contents 2</p>
+            <div class="buttons">
+                <a
+                    href="#"
+                    class="btn next"
+                >
+                    <span>Next</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+                <a
+                    href="start.html"
+                    class="btn i-know"
+                >
+                    <span>I know</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="container__section--card flashcard-back">
+            <p>answer 2</p>
+            <div class="buttons">
+                <a
+                    href="#"
+                    class="btn next"
+                >
+                    <span>Next</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="flashcard">
+        <div class="container__section--card flashcard-front">
+            <p>task contents 3</p>
+            <div class="buttons">
+                <a
+                    href="#"
+                    class="btn next"
+                >
+                    <span>Next</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+                <a
+                    href="start.html"
+                    class="btn i-know"
+                >
+                    <span>I know</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="container__section--card flashcard-back">
+            <p>answer 3</p>
+            <div class="buttons">
+                <a
+                    href="#"
+                    class="btn next"
+                >
+                    <span>Next</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 {% endblock %}
