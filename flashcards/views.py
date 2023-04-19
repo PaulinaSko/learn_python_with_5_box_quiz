@@ -18,8 +18,9 @@ def random_flashcard(request, kwargs=None):
     global flashcard
     number_of_flashcards = Flashcards.objects.count()
     random_id = random.randint(1, number_of_flashcards)
+
     if 'flashcard_displayed' in request.session:
-        if len(request.session['flashcard_displayed']) >= 2:
+        if len(request.session['flashcard_displayed']) == number_of_flashcards:
             return show_certificate(request, kwargs)
 
         if random_id not in request.session['flashcard_displayed']:

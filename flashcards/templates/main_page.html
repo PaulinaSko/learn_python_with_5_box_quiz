@@ -1,19 +1,85 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Are YOU ready for the challenge?</h1>
-    <section>
-    <div class="not-found">
-    <p>Prove Your skills in Python using flashcards. Answer following questions. It`s really simple: You KNOW the answer or You just DON`T ! </p>
-    </div>
-    <div>
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}"><button class="button">Logout</button></a>
-        {% else %}
-            <a href="{% url 'login' %}"><button class="button">Sign in</button></a>
-        {% endif %}
+    <section class="container__section">
+        <h2>Are YOU ready for the challenge?</h2>
+        <p>Are YOU ready for the challenge? Prove Your skills in Python using flash cards.<br />Answer following
+            questions.</p>
+        <p>It's really simple: You KNOW the answer or You just DON'T !</p>
+    </section>
+    <section class="container__section">
+        <div class="buttons">
+            {% if user.is_authenticated %}
+                <a
+                    href="{% url 'logout' %}"
+                    class="btn"
+                >
+                    <span>Logout</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            {% else %}
+                <a
+                    href="{% url 'login' %}"
+                    class="btn"
+                >
+                    <span>Sign In/Log in</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <a
+                href="{% url 'flashcard' %}"
+                class="btn start-now-btn"
+            >
+                <span>Start now!</span>
+                <svg
+                    width="13px"
+                    height="10px"
+                    viewBox="0 0 13 10"
+                >
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </a>
+            {% else %}
+                <a
+                href="{% url 'flashcard' %}"
+                class="btn start-now-btn"
+            >
+                <span>Start now! - I don't want to sign in</span>
+                <svg
+                    width="13px"
+                    height="10px"
+                    viewBox="0 0 13 10"
+                >
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </a>
 
-        <a href="{% url 'flashcard' %}"><button class="button">Start now!</button></a>
-    </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="chart">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </section>
 {% endblock %}
