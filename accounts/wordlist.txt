@@ -1,3 +1,4 @@
+#File downloaded from https://github.com/ReconCubed/django-profanity-filter
 a55
 anal
 anus
