@@ -1,22 +1,41 @@
 {% extends "base.html" %}
+
 {% block content %}
+    <section class="container__section">
+        <h2>Login</h2>
+        <form action="action_page.php" method="post">
 
-<h1>Login</h1>
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
 
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" class= "button" value="Sign in" />
-</form>
-<p>You don't have an account? <a href="{%url 'register' %}">Create account</a></p>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
 
+            <div class="buttons">
+                <button class="btn" type="submit">
+                    <span>Login</span>
+                    <svg
+                        width="13px"
+                        height="10px"
+                        viewBox="0 0 13 10"
+                    >
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+    <section class="chart">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </section>
 {% endblock %}
-
-
-
-
-
-
 
 
 
