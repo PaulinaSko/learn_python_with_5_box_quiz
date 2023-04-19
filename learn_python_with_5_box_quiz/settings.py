@@ -124,6 +124,8 @@ STATIC_URL = 'flashcards/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+default_app_config = 'learn_python_with_5_box_quiz.accounts.apps.UserConfig'
+
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 LOGIN_URL = 'login'
