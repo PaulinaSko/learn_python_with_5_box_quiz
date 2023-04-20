@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, LoginForm, UpdateUserForm, UpdateProfileForm
 from django.http import HttpResponse
 from django.views.generic import View
-# from learn_python_with_5_box_quiz.flashcards.process import html_to_pdf
+# from .process import html_to_pdf
 
 # Create your views here
 
@@ -19,7 +19,7 @@ class RegisterView(FormView):
     template_name = "accounts/register.html"
     form_class = CustomUserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('flashcard')
+    success_url = reverse_lazy('index')
 
     def form_valid(self, form):
         user = form.save()
