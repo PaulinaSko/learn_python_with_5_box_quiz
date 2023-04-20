@@ -4,6 +4,7 @@ from .models import Flashcards
 import random
 from django.views.generic import ListView
 from .process import html_to_pdf
+from .global_variable import flashcard
 
 
 # Create your views here.
@@ -15,7 +16,6 @@ def show_certificate(self, request, *args, **kwargs):
 
 
 def random_flashcard(request, kwargs=None):
-    global flashcard
     number_of_flashcards = Flashcards.objects.count()
     random_id = random.randint(1, number_of_flashcards)
 
@@ -25,18 +25,16 @@ def random_flashcard(request, kwargs=None):
 
         if random_id not in request.session['flashcard_displayed']:
             request.session['flashcard_displayed'].insert(0, random_id)
-            flashcard = Flashcards.objects.get(ID=random_id)
 
         else:
             while random_id in request.session['flashcard_displayed']:
                 random_id = random.randint(1, number_of_flashcards)
 
             request.session['flashcard_displayed'].insert(0, random_id)
-            flashcard = Flashcards.objects.get(ID=random_id)
 
     else:
         random_id = random.randint(1, number_of_flashcards)
-        flashcard = Flashcards.objects.get(ID=random_id)
+
         request.session['flashcard_displayed'] = [random_id]
 
     request.session.modified = True
@@ -61,12 +59,22 @@ class AboutQuiz(ListView):
     model = Flashcards
 
 
-class Ranking(ListView):
-    template_name = 'ranking.html'
+class Start(ListView):
+    template_name = 'start.html'
     model = Flashcards
 
 
-def error_404(request):
+class FinishPage(ListView):
+    template_name = 'finish_page.html'
+    model = Flashcards
+
+
+class Certificate(ListView):
+    template_name = 'result.html'
+    model = Flashcards
+
+
+def error_404(request, exception):
     return render(request, 'notfound.html')
 
 
