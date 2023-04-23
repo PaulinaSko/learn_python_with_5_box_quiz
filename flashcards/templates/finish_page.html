@@ -5,7 +5,7 @@
 
 {% block content %}
     <section class="container__section container__section--thank-you">
-        <p>Congratulations user</p>
+        <p>Congratulations {{ user.username }}</p>
         <p>You have overcome the challenge!</p>
         </p>
         <div class="buttons">
@@ -13,7 +13,7 @@
                 href="{% url 'certificate' %}"
                 class="btn"
             >
-                <span>Click HERE to obtain a certificate.</span>
+                <span>Click - HERE - to obtain a certificate.</span>
                 <svg
                     width="13px"
                     height="10px"

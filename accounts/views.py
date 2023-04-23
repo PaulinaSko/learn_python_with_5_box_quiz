@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, LoginForm, UpdateUserForm, UpdateProfileForm
 from django.http import HttpResponse
 from django.views.generic import View
-# from learn_python_with_5_box_quiz.flashcards.process import html_to_pdf
+# from .process import html_to_pdf
 
 # Create your views here
 
