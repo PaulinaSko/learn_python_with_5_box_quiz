@@ -19,7 +19,7 @@ class RegisterView(FormView):
     template_name = "accounts/register.html"
     form_class = CustomUserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('flashcard')
+    success_url = reverse_lazy('index')
 
     def form_valid(self, form):
         user = form.save()
