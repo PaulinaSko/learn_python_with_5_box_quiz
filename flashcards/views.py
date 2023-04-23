@@ -15,7 +15,6 @@ def show_certificate(self, request, *args, **kwargs):
 
 
 def random_flashcard(request, kwargs=None):
-    global flashcard
     number_of_flashcards = Flashcards.objects.count()
     random_id = random.randint(1, number_of_flashcards)
 
@@ -61,12 +60,22 @@ class AboutQuiz(ListView):
     model = Flashcards
 
 
-class Ranking(ListView):
-    template_name = 'ranking.html'
+class Start(ListView):
+    template_name = 'start.html'
     model = Flashcards
 
 
-def error_404(request):
+class FinishPage(ListView):
+    template_name = 'finish_page.html'
+    model = Flashcards
+
+
+class Certificate(ListView):
+    template_name = 'result.html'
+    model = Flashcards
+
+
+def error_404(request, exception):
     return render(request, 'notfound.html')
 
 
