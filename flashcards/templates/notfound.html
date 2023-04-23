@@ -1,13 +1,33 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <section>
-    <div class="not-found">
-    <p>Sorry 😢</p>
-    <p>Page not found.</p>
-    </div>
-    <div>
-    <a href="{% url 'index' %}"><button class="button">Back to Homepage</button></a>
-    </div>
+    <section class="container__section not-found">
+        <p>Sorry 😢</p>
+        <p>Page not found.</p>
+
+        <div class="buttons">
+            <a
+                href="{% url 'index' %}"
+                class="btn"
+            >
+                <span>Back to Homepage</span>
+                <svg
+                    width="13px"
+                    height="10px"
+                    viewBox="0 0 13 10"
+                >
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </a>
+        </div>
     </section>
 
+    <section class="chart">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </section>
 {% endblock %}
