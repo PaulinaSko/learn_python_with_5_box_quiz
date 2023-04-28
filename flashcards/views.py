@@ -6,7 +6,6 @@ from django.views.generic import ListView
 from .process import html_to_pdf
 
 
-
 # Create your views here.
 
 def show_certificate(self, request, *args, **kwargs):
@@ -20,7 +19,7 @@ def random_flashcard(request, kwargs=None):
     random_id = random.randint(1, number_of_flashcards)
 
     if 'flashcard_displayed' in request.session:
-        if len(request.session['flashcard_displayed']) == number_of_flashcards:
+        if len(request.session['flashcard_displayed']) == 2:
             return show_certificate(request, kwargs)
 
         if random_id not in request.session['flashcard_displayed']:
@@ -44,7 +43,6 @@ def random_flashcard(request, kwargs=None):
     context = {'random_flashcard': flashcard}
 
     return render(request, 'flashcard.html', context)
-
 
 
 class FlashcardsView(ListView):
