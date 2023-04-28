@@ -131,8 +131,8 @@
       "pk": 15,
       "fields": {
         "box_ID": 1,
-        "question": "String literals� A string literal is created by assigning some text enclosed in single or double quotes to a variable.",
-        "answers": "Eg.name=�Tanya�"
+        "question": "String literals– A string literal is created by assigning some text enclosed in single or double quotes to a variable.",
+        "answers": "Eg.name=”Tanya”"
       }
     },
   
@@ -168,8 +168,8 @@
     "pk": 19,
     "fields": {
       "box_ID": 1,
-      "question": "What is the purpose of �is�?",
-      "answers": "is returns true when 2 operands are true� (Example: �a� is �a�)"
+      "question": "What is the purpose of ‘is’?",
+      "answers": "is returns true when 2 operands are true  (Example: “a” is ‘a’)"
     }
   },
   {
@@ -196,7 +196,7 @@
     "fields": {
       "box_ID": 1,
       "question": "How to create an empty set in Python?",
-      "answers": "set()_we need to define the set by including the keyword �set�"
+      "answers": "set()_we need to define the set by including the keyword ‘set’"
     }
   },
   {
@@ -285,7 +285,7 @@
     "pk": 32,
     "fields": {
       "box_ID": 1,
-      "question": "The Python interpreter takes the code that you write and converts it to the language that the computer�s hardware understands. T/F",
+      "question": "The Python interpreter takes the code that you write and converts it to the language that the computer’s hardware understands. T/F",
       "answers": "True"
     }
   },
@@ -312,7 +312,7 @@
     "pk": 35,
     "fields": {
       "box_ID": 1,
-      "question": "Boolean literals� These can be 2 values? T/F",
+      "question": "Boolean literals– These can be 2 values? T/F",
       "answers": "True"
     }
   },
@@ -502,7 +502,7 @@
     "fields": {
       "box_ID": 1,
       "question": "What is the main principal in Django?",
-      "answers": "It is made to follow the DRY(Don�t Repeat Yourself) principle which means that once you enter the information there is no coming back. It works as an operating generator in the main source code."
+      "answers": "It is made to follow the DRY(Don’t Repeat Yourself) principle which means that once you enter the information there is no coming back. It works as an operating generator in the main source code."
     }
   },
   {
@@ -681,7 +681,7 @@
     "pk": 76,
     "fields": {
       "box_ID": 1,
-      "question": "In Python, strings are�",
+      "question": "In Python, strings are…",
       "answers": "Str objects"
     }
   },
@@ -690,8 +690,8 @@
     "pk": 77,
     "fields": {
       "box_ID": 1,
-      "question": "Python strings have a property called �immutability.\" What does this mean?",
-      "answers": "Strings in Python can�t be changed"
+      "question": "Python strings have a property called ''immutability.'' What does this mean?",
+      "answers": "Strings in Python can’t be changed"
     }
   },
   {
@@ -844,7 +844,7 @@
     "fields": {
       "box_ID": 1,
       "question": "Is Django better than Flask?",
-      "answers": "Django and Flask map the URL�s or addresses typed in the web browsers to functions in Python"
+      "answers": "Django and Flask map the URL’s or addresses typed in the web browsers to functions in Python"
     }
   },
   {
