@@ -4,9 +4,9 @@
     <section class="container__section">
         <h2>Hello {{ user.username }}</h2>
         <h2>Are YOU ready for the challenge?</h2>
-        <p>Are YOU ready for the challenge? Prove Your skills in Python using flash cards.<br />Answer following
+        <p>Are YOU ready for the challenge? Prove Your skills in Python using flash cards.<br />Answear following
             questions.</p>
-        <p>It's really simple: You KNOW the answer or You just DON'T !</p>
+        <p>It's really simple: You KNOW the answear or You just DON'T !</p>
     </section>
     <section class="container__section">
         <div class="buttons">
@@ -43,7 +43,7 @@
             {% endif %}
             {% if user.is_authenticated %}
             <a
-                href="{% url 'flashcard' %}"
+                href="{% url 'start' %}"
                 class="btn start-now-btn"
             >
                 <span>Start now!</span>
@@ -58,7 +58,7 @@
             </a>
             {% else %}
                 <a
-                href="{% url 'flashcard' %}"
+                href="{% url 'start' %}"
                 class="btn start-now-btn"
             >
                 <span>Start now! - I don't want to sign in</span>

@@ -2,38 +2,33 @@
 
 {% block content %}
     <section class="container__section">
-        <h2>Hello {{ user.username }}<br />
-        </h2>
-        <p>The basic rules of the quiz:</p>
-        <br />
-        <p>1. Read the question on the flash card</p>
-        <p>2. If You know the answer click YES to confirm - the answer will appear</p>
-        <p>3. If You do not know the answer click NEXT</p>
+        <h1>Few words about 5_box_quiz - how it`s working?</h1><br />
+            <p>The goal is to learn Python through repeating 100 flashcards. How? </p>
+            <p>
+            If You see the question think carefully. If You know the answear click "I know" button and check the answear.
+            If You are not so sure about the correct answear choose "Next question" button so the flashcard will wait for another try.
+            Repeat these steps until You know all the answears. Then the certificate will appear.
+                Then You can say "I really know this. I'm really good at it" <br />And You are right, You are just <strong> P-H-E-N-O-M-E-N-A-L :-) </strong></p>
+            <br />
+            <p>P.S. Questions are mainly from Python, but not only. Good luck!</p>
+            <br />
     </section>
     <section class="container__section">
-        <div class="buttons">
-            <a
-                href="{% url 'start' %}"
+        <a
+                href="{% url 'index' %}"
                 class="btn"
-            >
-                <span>Start now</span>
-                <svg
-                    width="13px"
+        >
+            <span>Click here if You want to try the game</span>
+            <svg width="13px"
                     height="10px"
                     viewBox="0 0 13 10"
-                >
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <section class="chart">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+            >
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+        </a>
     </section>
 {% endblock %}
+
+
+
