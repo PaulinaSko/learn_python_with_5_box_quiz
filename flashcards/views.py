@@ -9,7 +9,7 @@ from .process import html_to_pdf
 # Create your views here.
 
 def show_certificate(self, request, *args, **kwargs):
-    pdf = html_to_pdf('accounts/result.html')
+    pdf = html_to_pdf('result.html')
 
     return HttpResponse(pdf, content_type='application/pdf')
 
@@ -19,7 +19,7 @@ def random_flashcard(request, kwargs=None):
     random_id = random.randint(1, number_of_flashcards)
 
     if 'flashcard_displayed' in request.session:
-        if len(request.session['flashcard_displayed']) == 2:
+        if len(request.session['flashcard_displayed']) == number_of_flashcards:
             return show_certificate(request, kwargs)
 
         if random_id not in request.session['flashcard_displayed']:
